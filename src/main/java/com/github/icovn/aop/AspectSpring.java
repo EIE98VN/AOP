@@ -1,4 +1,4 @@
-package com.github.icovn.aspect;
+package com.github.icovn.aop;
 
 
 import java.io.BufferedReader;
@@ -22,7 +22,7 @@ public class AspectSpring {
     private boolean isChecked = false;
     private static Logger logger = LoggerFactory.getLogger(AspectSpring.class);
 
-    @Before("execution(* com.github.icovn..aop..*(..))")
+    @Before("execution(* com.github.icovn.aop..*(..))")
     public void logIn() throws IOException, AuthenticationException {
         int countLogin = 0;
         if (!isChecked) {
@@ -45,7 +45,7 @@ public class AspectSpring {
         }
     }
 
-    @Around("execution(* com.github.icovn..aop..*(..))")
+    @Around("execution(* com.github.icovn.aop..*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
 
